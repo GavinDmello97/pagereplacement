@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">OSMP</string>
+    <string name="title_activity_calculate">Calculate</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_main">Page Replacement ALgorithms</string>
+    <string name="title_homepage">Data Entry!</string>
+    <string name="title_activity_fragment_base1">f</string>
+</resources>

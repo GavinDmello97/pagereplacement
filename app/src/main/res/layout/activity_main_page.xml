@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.imperials.osmp.MainPage">
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Page Replacement
+Algorithms"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="30dp"
+        android:textStyle="italic"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tvframesize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Frame Size:"
+        android:textSize="15dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/name"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/etenterframesize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:text=""
+        android:layout_below="@+id/tvframesize"
+        android:layout_alignStart="@+id/tvframesize" />
+
+
+
+    <TextView
+        android:id="@+id/tventerpages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter the pages:"
+        android:layout_below="@+id/etenterpagesize"
+        android:layout_alignStart="@+id/etenterpagesize"
+        android:layout_marginTop="28dp" />
+
+    <EditText
+        android:id="@+id/etenterpages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+
+        android:layout_below="@+id/tventerpages"
+        android:layout_alignStart="@+id/tventerpages" />
+
+    <TextView
+        android:id="@+id/reference"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#Enter the pages in the form of a string with spaces between two pages. "
+        android:layout_below="@+id/etenterpages"
+        android:layout_alignStart="@+id/etenterpages"
+        android:layout_alignEnd="@+id/calculate" />
+
+    <Button
+        android:id="@+id/calculate"
+        android:layout_width="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorWhite"
+        android:textSize="30dp"
+        android:layout_height="wrap_content"
+        android:text="CALCULATE"
+        android:onClick="move"
+        android:paddingRight="60dp"
+        android:paddingLeft="60dp"
+        android:layout_marginBottom="33dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tvpagesize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:text="Page Size"
+        android:layout_below="@+id/etenterframesize"
+        android:layout_alignStart="@+id/etenterpagesize" />
+
+    <EditText
+        android:id="@+id/etenterpagesize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/etenterframesize"
+        android:layout_below="@+id/tvpagesize"
+        android:ems="10"
+
+        android:inputType="number"
+        android:text="" />
+
+
+</RelativeLayout>
