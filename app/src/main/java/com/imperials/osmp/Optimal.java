@@ -49,7 +49,7 @@ public class Optimal  extends Fragment {
         tv6.setText(value3);
 
 
-
+/*
         String[] splitStr = value3.split("\\s+");
         for(int i=0;i<=countWords(value3);i++) {
             disp = disp + "\n" + splitStr[i].toString();
@@ -58,7 +58,7 @@ public class Optimal  extends Fragment {
         tv7.setText(disp);
 
 
-
+*/
 
 
 

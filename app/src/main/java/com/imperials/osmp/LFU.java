@@ -62,6 +62,108 @@ public class LFU extends Fragment {
 */
 
 
+        int f_size, p_size;
+        String frame[];
+        String page;
+        boolean flag;                                                            //flag for page fault
+        int ctr = 0, pg_miss = 0, pg_hit = 0;
+
+        f_size = Integer.parseInt(value1);
+        p_size = Integer.parseInt(value2);
+
+        String[] pages = value3.split("\\s+");
+        int[] temp= new int[f_size];
+        frame = new String[f_size];                                                    //string array frame[] of f_size
+        for (int i = 0; i < f_size; i++) {                                                    //initializes frame array with " " which indicates an empty frame array
+            frame[i] = "_";
+        }
+
+        //flag for page fault
+        int k = 0;                                        //index k (if page fault occurs); page fault counter
+        String a[] = new String[f_size];                                    /* 2 temporary arrays to keep track of LRU page, sorted from most recent to least recent */
+        String b[] = new String[f_size];                                    /* first element of a[] is most recent and the last element is the LRU */
+        for(int i=0 ; i<f_size ; i++){                                     //initialize array elements to " "
+            a[i] = " ";
+            b[i] = " ";
+            temp[i]=0;
+        }
+
+        for(int pg=0 ; pg < p_size ; pg++)
+        {
+            page = pages[pg];
+            flag = true;                                          //initially, flag is true because it has not yet found a page hit
+            for(int j=0 ; j < f_size ; j++)
+            {                                //checks if page hit
+                if(frame[j].equals(page))
+                {
+                    {
+                        flag = false;//If page hit, no page fault occurs
+                        temp[j] += 1;
+                    }
+                    break;
+                }
+            }
+
+            for(int j=0 ; j < f_size && flag ; j++)
+            {                          //While page fault occurs and find the least recently used page,
+                if(temp[j]<temp[(j+1)%f_size]&&temp[j]<temp[(j+2)%f_size])
+                {
+
+
+                }k=j;
+            }
+
+            if(flag == true){                                                  //If page fault,
+                frame[k]=page;                                           //replace frame[k] with the page.
+                k++;
+                if (k == frame.length)
+                    k = 0;
+                tv7.setText(tv7.getText() + "frame:-->     ");// System.out.print("frame: " );
+            /* display frame buffer array */
+                for(int j=0 ; j < f_size ; j++)
+                    tv7.setText(tv7.getText() + frame[j] + "   ");    //System.out.print(frame[j] + "  ");
+                tv7.setText(tv7.getText() + " Miss!!\n");
+                //System.out.println(" --> page fault!" );
+                pg_miss++;                                              //add 1 to page fault counter
+            }
+            else{                                                     //If page hit, no replacement
+            /* display frame buffer array */
+                tv7.setText(tv7.getText() + "frame:-->     ");//System.out.print("frame: " );
+                for(int j=0 ; j < f_size ; j++)
+                    tv7.setText(tv7.getText() + frame[j] + "   ");
+                // System.out.print(frame[j]+"  ");
+                tv7.setText(tv7.getText() + "  Hit!!\n");
+                //System.out.println(" --> page hit!" );
+                pg_hit++;
+            }
+
+            int p=1;                                                   //counter
+            b[0]=page;                                                 //first element of b[] is the page (b is most recent)
+         /* update MRU-LRU array */
+            for(int j=0 ; j < a.length ; j++){                               //while j < size of frames
+                if(!page.equals(a[j]) && p < f_size){                          //the elements in a[] that are not equal to referenced page or is not the most recently used are copied to b[j] from left
+                    b[p]=a[j];
+                    p++;
+                }
+            }
+            for(int j=0 ; j < f_size ; j++){                                 //set LRU a[] to the updated LRU b[]
+                a[j]=b[j];
+            }
+        }
+        tv8.setText("Hits:" + pg_hit + "\nMisses:" + pg_miss + "\n");
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -93,3 +195,7 @@ public class LFU extends Fragment {
 
 
 }
+
+
+
+
